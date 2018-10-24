@@ -97,73 +97,12 @@ Route::get('user_dashboard',
 );
 
 
-/***** Login *****/
-Route::get('login',
-	array(
-		'as' => 'login',
-		function() {
-			return View::make('login');
-		}
-	)
-)->before('guest');
-
-Route::post('login',
-	array(
-		'as' => 'login',
-		'uses' => 'UserController@processLogin2'
-	)
-)->before('guest');
-
-Route::get('forgot',
-	array(
-		'as' => 'forgot',
-		'uses' => 'RemindersController@getRemind'
-	)
-);
-
-Route::post('forgot',
-	array(
-		'as' => 'forgot',
-		'uses' => 'RemindersController@postRemind'
-	)
-);
-
-Route::get('password/reset/{token}',
-	array(
-		'as' => 'forgot',
-		'uses' => 'RemindersController@getReset'
-	)
-);
-
-Route::post('password/reset/{token}',
-	array(
-		'as' => 'forgot',
-		'uses' => 'RemindersController@postReset'
-	)
-);
-
-
-/***** Logout *****/
-Route::get('logout',
-	array(
-		'as' => 'logout',
-		'uses' => 'UserController@logout'
-	)
-)->before('auth');
 
 
 
 
 
 
-/* @author :: vijay*/
-/***** Dashboard *****/
-Route::get('dashboard',
-	array(
-		'as' => 'dashboard',
-		'uses' => 'DashboardController@index'
-	)
-)->before('admin|handler');
 
 
 
